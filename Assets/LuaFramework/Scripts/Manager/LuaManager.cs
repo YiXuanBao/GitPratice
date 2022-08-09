@@ -84,6 +84,7 @@ namespace LuaFramework {
         /// </summary>
         void InitLuaBundle() {
             if (loader.beZip) {
+                Debug.Log("InitLuaBundle");
                 loader.AddBundle("lua/lua.unity3d");
                 loader.AddBundle("lua/lua_math.unity3d");
                 loader.AddBundle("lua/lua_system.unity3d");

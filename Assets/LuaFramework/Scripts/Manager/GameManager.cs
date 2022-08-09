@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -236,7 +236,7 @@ namespace LuaFramework {
 
         /// <summary>
         /// 资源初始化结束
-        /// </summary>
+        /// </summary
         public void OnResourceInited() {
             LuaManager.InitStart();
             LuaManager.DoFile("Logic/Game");            //加载游戏

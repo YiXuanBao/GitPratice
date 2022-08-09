@@ -55,6 +55,7 @@ namespace LuaFramework {
             if (go == null || luafunc == null) return;
             buttons.Add(go.name, luafunc);
             UIEventListener.Get(go).onClick = delegate(GameObject o) {
+                Debug.Log("onclick " + go.name);
                 luafunc.Call(go);
             };
         }

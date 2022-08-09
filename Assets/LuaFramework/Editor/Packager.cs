@@ -240,6 +240,15 @@ public class Packager {
         mainAsset = LoadAsset("Shared/Atlas/Dialog.prefab");
         BuildPipeline.BuildAssetBundle(mainAsset, null, assetfile, options, target);
 
+        ///------------------------------生成PraticePanel素材绑定-----------------------------------
+        BuildPipeline.PushAssetDependencies();
+        mainAsset = LoadAsset("Pratice/Prefabs/PraticePanel.prefab");
+        addis = new Object[1];
+        addis[0] = LoadAsset("Pratice/Prefabs/PraticeItem.prefab");
+        assetfile = assetPath + "pratice" + AppConst.ExtName;
+        BuildPipeline.BuildAssetBundle(mainAsset, addis, assetfile, options, target);
+        BuildPipeline.PopAssetDependencies();
+
         ///------------------------------生成PromptPanel素材绑定-----------------------------------
         BuildPipeline.PushAssetDependencies();
         mainAsset = LoadAsset("Prompt/Prefabs/PromptPanel.prefab");
@@ -255,6 +264,7 @@ public class Packager {
         assetfile = assetPath + "message" + AppConst.ExtName;
         BuildPipeline.BuildAssetBundle(mainAsset, null, assetfile, options, target);
         BuildPipeline.PopAssetDependencies();
+
 
         ///-------------------------------刷新---------------------------------------
         BuildPipeline.PopAssetDependencies();

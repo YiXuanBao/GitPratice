@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace LuaFramework {
             get {
                 if (parent == null) {
                     GameObject go = GameObject.FindWithTag("GuiCamera");
+                    Debug.Log("GuiCamera" + go);
                     if (go != null) parent = go.transform;
                 }
                 return parent;
@@ -63,8 +65,11 @@ namespace LuaFramework {
         /// <param name="name"></param>
         public void ClosePanel(string name) {
             var panelName = name + "Panel";
-            var panelObj = Parent.Find(panelName);
+            var panelObj = Parent.transform.Find(panelName);
+            Debug.Log(Parent.name);
+            Debug.Log(panelName);
             if (panelObj == null) return;
+            Debug.Log("Destroy");
             Destroy(panelObj.gameObject);
         }
     }
